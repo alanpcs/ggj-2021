@@ -4,28 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void CheckBoundaries()
     {
-        Debug.Log("Olar");
-    }
-
-    
-    // Update is called once per frame
-    void Update()
-    {
-        float moveSpeed = 10;
-        //Define the speed at which the object moves.
-
-        float horizontalInput = Input.GetAxis("Horizontal");
-        //Get the value of the Horizontal input axis.
-
-        float verticalInput = Input.GetAxis("Vertical");
-        //Get the value of the Vertical input axis.
-
-        transform.Translate(new Vector3(horizontalInput, verticalInput, 0) * moveSpeed * Time.deltaTime);
-        //Move the object to XYZ coordinates defined as horizontalInput, 0, and verticalInput respectively.
-
         if (transform.position.x >= 8)
         {
             Vector3 pos = transform.position;
@@ -50,5 +30,30 @@ public class PlayerController : MonoBehaviour
             pos.y = -4.4f;
             transform.position = pos;
         }
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        Debug.Log("Olar");
+    }
+
+    
+    // Update is called once per frame
+    void Update()
+    {
+        float moveSpeed = 10;
+        //Define the speed at which the object moves.
+
+        float horizontalInput = Input.GetAxis("Horizontal");
+        //Get the value of the Horizontal input axis.
+
+        float verticalInput = Input.GetAxis("Vertical");
+        //Get the value of the Vertical input axis.
+
+        transform.Translate(new Vector3(horizontalInput, verticalInput, 0) * moveSpeed * Time.deltaTime);
+        //Move the object to XYZ coordinates defined as horizontalInput, 0, and verticalInput respectively.
+
+        CheckBoundaries();
     }
 }
