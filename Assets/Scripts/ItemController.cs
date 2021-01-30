@@ -8,7 +8,7 @@ public class ItemController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        _isLost = false;
     }
 
     void OnTriggerEnter2D(Collider2D col)
