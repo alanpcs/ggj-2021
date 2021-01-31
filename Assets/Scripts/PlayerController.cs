@@ -8,6 +8,10 @@ public class PlayerController : MonoBehaviour
     private bool _isHoldingItem;
     private GameObject _item;
     private float moveSpeed;
+    [SerializeField]
+    private AudioSource PickSound;
+    [SerializeField]
+    private AudioSource DropSound;
 
     [SerializeField]
     private SpriteRenderer _sprite;
@@ -68,6 +72,7 @@ public class PlayerController : MonoBehaviour
                 _item.SetActive(true);
                 _item.transform.position = transform.position;
                 _isHoldingItem = false;
+                DropSound.Play();
             }
             else
             {
@@ -76,6 +81,7 @@ public class PlayerController : MonoBehaviour
                     _isHoldingItem = true;
                     Debug.Log("pegoouuu");
                     _item.SetActive(false);
+                    PickSound.Play();
                 }
                 else
                     Debug.Log("errouuuuu");

@@ -25,7 +25,7 @@ public class LoadMainMenu : MonoBehaviour
         _items[0].SetActive(true);
         for (int i = 1; i < _items.Length; i++)
         {
-            yield return new WaitForSeconds(0.8f);
+            yield return new WaitForSeconds(1.0f);
             _items[i].SetActive(true);
         }
     }
