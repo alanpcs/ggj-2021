@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FloorManager : MonoBehaviour
 {
@@ -10,6 +11,11 @@ public class FloorManager : MonoBehaviour
     private Vector3 _newPos;
     private Vector3 _deltaPos;
     private float translationSpeed = 4;
+
+    [SerializeField]
+    private Slider _sliderWhite;
+    [SerializeField]
+    private Slider _sliderBlack;
 
     void Start()
     {
@@ -23,7 +29,10 @@ public class FloorManager : MonoBehaviour
     void Update()
     {
         transform.Rotate(new Vector3(0, 0, -0.1f), Space.Self);
+
         UpdateSocksQty();
+        UpdateSliders();
+
         if (_canChangePos)
         {
             float move = translationSpeed * Time.deltaTime;
@@ -65,5 +74,11 @@ public class FloorManager : MonoBehaviour
         Debug.Log("Total: " + _totalSocks + " Lost: " + _lostSocks + " Balance: " + balance);
 
         StartCoroutine(UpdatePosition());
+    }
+
+    void UpdateSliders()
+    {
+        _sliderBlack.value = (float) _lostSocks / _totalSocks;
+        _sliderWhite.value = (float) (_totalSocks - _lostSocks) / _totalSocks;
     }
 }
