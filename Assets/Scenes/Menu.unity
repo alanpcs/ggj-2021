@@ -2190,7 +2190,7 @@ PrefabInstance:
     - target: {fileID: 8697069991593574487, guid: 97ae06004a2e241ebb345c36c2c56ec3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 660917823}
     - target: {fileID: 8697069991593574487, guid: 97ae06004a2e241ebb345c36c2c56ec3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -2205,7 +2205,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8697069991593574487, guid: 97ae06004a2e241ebb345c36c2c56ec3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: cachorro
+      value: LoadGame
       objectReference: {fileID: 0}
     - target: {fileID: 8697069991593574487, guid: 97ae06004a2e241ebb345c36c2c56ec3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -2213,7 +2213,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8697069991593574487, guid: 97ae06004a2e241ebb345c36c2c56ec3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: ButtonClick, Assembly-CSharp
+      value: SceneController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8697069991593574487, guid: 97ae06004a2e241ebb345c36c2c56ec3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
