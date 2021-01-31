@@ -11,15 +11,14 @@ public class FloorManager : MonoBehaviour
     {
         _totalSocks = 2;
         _lostSocks = 1;
+        StartCoroutine(UpdatePosition());
     }
 
     // Update is called once per frame
     void Update()
     {
         transform.Rotate(new Vector3(0, 0, -0.1f), Space.Self);
-
         UpdateSocksQty();
-        StartCoroutine(UpdatePosition());
     }
 
     private void UpdateSocksQty()
