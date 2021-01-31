@@ -9,11 +9,13 @@ public class PlayerController : MonoBehaviour
     private GameObject _item;
     private float moveSpeed;
 
+    [SerializeField]
+    private SpriteRenderer _sprite;
+
     // Start is called before the first frame update
     void Start()
     {
-        moveSpeed = 5;
-        Debug.Log("Olar");
+        moveSpeed = 4;
     }
 
     
@@ -22,6 +24,9 @@ public class PlayerController : MonoBehaviour
     {
         float horizontalInput = Input.GetAxis("Horizontal");
         //Get the value of the Horizontal input axis.
+
+        //Check if the sprite needs to be fliped
+        UpdateSprite(horizontalInput);
 
         float verticalInput = Input.GetAxis("Vertical");
         //Get the value of the Vertical input axis.
@@ -90,5 +95,14 @@ public class PlayerController : MonoBehaviour
         {
             transform.position = newPosition;
         } 
+    }
+
+    private void UpdateSprite (float x)
+    {
+        if (x < 0)
+            _sprite.flipX = true;
+        else if (x > 0)
+            _sprite.flipX = false;
+
     }
 }
