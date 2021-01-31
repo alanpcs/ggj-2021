@@ -49,7 +49,7 @@ public class FloorManager : MonoBehaviour
 
     IEnumerator UpdatePosition()
     {
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(4.0f);
 
         _canChangePos = true;
 
