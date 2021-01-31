@@ -7,10 +7,12 @@ public class PlayerController : MonoBehaviour
     private bool _canPick;
     private bool _isHoldingItem;
     private GameObject _item;
+    private float moveSpeed;
 
     // Start is called before the first frame update
     void Start()
     {
+        moveSpeed = 5;
         Debug.Log("Olar");
     }
 
@@ -18,19 +20,16 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float moveSpeed = 10;
-        //Define the speed at which the object moves.
-
         float horizontalInput = Input.GetAxis("Horizontal");
         //Get the value of the Horizontal input axis.
 
         float verticalInput = Input.GetAxis("Vertical");
         //Get the value of the Vertical input axis.
 
-        transform.Translate(new Vector3(horizontalInput, verticalInput, 0) * moveSpeed * Time.deltaTime);
+        //transform.Translate(new Vector3(horizontalInput, verticalInput, 0) * moveSpeed * Time.deltaTime);
         //Move the object to XYZ coordinates defined as horizontalInput, 0, and verticalInput respectively.
 
-        CheckBoundaries();
+        CheckBoundaries(horizontalInput, verticalInput);
         CheckPickItem();
     }
 
@@ -38,7 +37,7 @@ public class PlayerController : MonoBehaviour
     {
         if (!_isHoldingItem && col.tag == "Item")
         {
-            Debug.Log("pega a meinha aí poxa");
+            Debug.Log("pega a meinha a? poxa");
             _canPick = true;
             _item = col.gameObject;
         }
@@ -48,7 +47,7 @@ public class PlayerController : MonoBehaviour
     {
         if (!_isHoldingItem && col.tag == "Item")
         {
-            Debug.Log("af seu bobo não pegou a meia poxa, que decepção :(");
+            Debug.Log("af seu bobo n?o pegou a meia poxa, que decep??o :(");
             _canPick = false;
             _item = null;
         }
@@ -79,31 +78,17 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void CheckBoundaries()
+    private void CheckBoundaries(float x, float y)
     {
-        if (transform.position.x >= 8)
+        Vector3 newPosition = moveSpeed * Time.deltaTime * new Vector3(x, y, 0) + transform.position;
+
+        float r = 4.4f;
+
+        float distance = newPosition.x * newPosition.x + newPosition.y * newPosition.y;
+
+        if (distance < (r * r))
         {
-            Vector3 pos = transform.position;
-            pos.x = 8;
-            transform.position = pos;
-        }
-        else if (transform.position.x <= -8)
-        {
-            Vector3 pos = transform.position;
-            pos.x = -8;
-            transform.position = pos;
-        }
-        if (transform.position.y >= 4.4f)
-        {
-            Vector3 pos = transform.position;
-            pos.y = 4.4f;
-            transform.position = pos;
-        }
-        else if (transform.position.y <= -4.4f)
-        {
-            Vector3 pos = transform.position;
-            pos.y = -4.4f;
-            transform.position = pos;
-        }
+            transform.position = newPosition;
+        } 
     }
 }
