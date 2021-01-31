@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class FloorManager : MonoBehaviour
 {
@@ -32,6 +33,7 @@ public class FloorManager : MonoBehaviour
 
         UpdateSocksQty();
         UpdateSliders();
+        CheckLoseConditions();
 
         if (_canChangePos)
         {
@@ -80,5 +82,11 @@ public class FloorManager : MonoBehaviour
     {
         _sliderBlack.value = (float) _lostSocks / _totalSocks;
         _sliderWhite.value = (float) (_totalSocks - _lostSocks) / _totalSocks;
+    }
+
+    void CheckLoseConditions()
+    {
+        if ((_lostSocks == 0 || _lostSocks == _totalSocks) && _totalSocks > 5)
+            SceneManager.LoadScene("YouLose");
     }
 }

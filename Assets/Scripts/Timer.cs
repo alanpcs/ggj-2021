@@ -26,7 +26,7 @@ public class Timer : MonoBehaviour
         {
             // calculate the result
             // load new scene
-            // SceneManager.LoadScene("SceneName");
+            SceneManager.LoadScene("YouWin");
         }
     }
 }
