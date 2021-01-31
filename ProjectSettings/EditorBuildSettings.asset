@@ -8,4 +8,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: 315caaa64318e4f6daa9e756258fd851
+  - enabled: 1
+    path: Assets/Scenes/YouLoseLight.unity
+    guid: 435553702e23f4c39818c4c6b54916aa
+  - enabled: 1
+    path: Assets/Scenes/YouLoseDarkness.unity
+    guid: ba497ed4f74854d52a79c3fc4202900b
+  - enabled: 1
+    path: Assets/Scenes/YouWin.unity
+    guid: 7697803875b94b940a7b8123edfd5d4c
   m_configObjects: {}

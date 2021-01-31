@@ -7,6 +7,8 @@ public class MenuController : MonoBehaviour
     private GameObject HowToPlay;
     [SerializeField]
     private GameObject Credits;
+    [SerializeField]
+    private GameObject ExtraMessage;
 
     void Start()
     {
@@ -17,6 +19,7 @@ public class MenuController : MonoBehaviour
     public void ShowHowToPlay()
     {
         Credits.SetActive(false);
+        ExtraMessage.SetActive(false);
         if (HowToPlay.activeSelf)
         {
             HowToPlay.SetActive(false);
@@ -30,6 +33,7 @@ public class MenuController : MonoBehaviour
     public void ShowCredits()
     {
         HowToPlay.SetActive(false);
+        ExtraMessage.SetActive(false);
         if (Credits.activeSelf)
         {
             Credits.SetActive(false);

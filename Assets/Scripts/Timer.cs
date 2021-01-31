@@ -24,8 +24,6 @@ public class Timer : MonoBehaviour
 
         if (_timer <= 0.0f)
         {
-            // calculate the result
-            // load new scene
             SceneManager.LoadScene("YouWin");
         }
     }

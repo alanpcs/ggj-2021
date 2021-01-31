@@ -86,7 +86,9 @@ public class FloorManager : MonoBehaviour
 
     void CheckLoseConditions()
     {
-        if ((_lostSocks == 0 || _lostSocks == _totalSocks) && _totalSocks > 5)
-            SceneManager.LoadScene("YouLose");
+        if ((_lostSocks == 0) && _totalSocks > 5)
+            SceneManager.LoadScene("YouLoseLight");
+        if ((_lostSocks == _totalSocks) && _totalSocks > 5)
+            SceneManager.LoadScene("YouLoseDarkness");
     }
 }
